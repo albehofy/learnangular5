@@ -16,13 +16,14 @@ import {HttpClient} from "@angular/common/http"
   ]
 })
 export class AppComponent implements OnInit {
-  [x: string]: any;
   query: string;
   artists: Object;
+  currentArtist: Object; 
 
   showArtist(item: { name: string; highlight: boolean; }) {
     this.query = item.name;
     item.highlight = !item.highlight
+    this.currentArtist = item; 
   }
 
   constructor(private http : HttpClient){
