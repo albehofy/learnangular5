@@ -4,10 +4,9 @@
       <div class="card-body">
         <h3 class="mb-0">Artist Directory</h3>
         <div class="form-group">
-          <div class="form-label" *ngIf="query"><strong>For:</strong>
-            {{ query }} [(ngModule)]="query"
+          <div class="form-label" *ngIf="query"><strong>For:{{query}}</strong>
           </div>
-          <input class="form-control mt-2" type="text" [(ngModule)]="query">
+          <input [(ngModel)]="query" class="form-control mt-2" type="text">
         </div><!-- form-group -->
       </div><!-- card-body -->
     </div><!-- card -->
@@ -17,7 +16,7 @@
     <div class="row justify-content-center">
       <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
         <div class="list-group">
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"
+          <div class="list-group-item list-group-item-action flex-column align-items-start"
             *ngFor="let artist of artists"
             (click)="showArtist(artist)" [style.backgroundColor]="artist.highlight ? '#eee' : '#fff'">
               <div class="media">
@@ -27,7 +26,7 @@
                   {{ artist.reknown }}
                 </div><!-- media body -->
               </div><!-- media -->
-          </a><!-- link -->
+            </div><!-- link -->
         </div><!-- list-group -->
       </div><!-- col -->
     </div><!-- row -->
